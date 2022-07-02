@@ -1,26 +1,17 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    :width="width"
-    :height="height"
-    :viewBox="viewBox"
-    :aria-labelledby="iconName"
-  >
-    <title :id="iconName" lang="en">{{ iconName }}</title>
-    <g :fill="iconColor">
-      <slot />
-    </g>
-  </svg>
+  <div class="menu-icon">
+    <img
+      alt="Vue logo"
+      :src="require(`../../assets/Icons/${imgSrc}`)"
+      @click="toggleMobileNav"
+    />
+  </div>
 </template>
 
-<script>
-export default {
-  props: {
-    viewBox: { type: String, default: "0 0 24 24" },
-    iconName: { type: String, default: "" },
-    width: { type: [Number, String], default: 18 },
-    height: { type: [Number, String], default: 18 },
-    iconColor: { type: String, default: "currentColor" },
-  },
-};
+<script setup>
+import { defineProps, ref } from "vue";
+const props = defineProps({
+  imgSrc: String,
+});
+const imgSrc = ref(props.imgSrc);
 </script>
