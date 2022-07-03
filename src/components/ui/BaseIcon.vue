@@ -1,10 +1,6 @@
 <template>
-  <div class="menu-icon">
-    <img
-      alt="Vue logo"
-      :src="require(`../../assets/Icons/${imgSrc}`)"
-      @click="toggleMobileNav"
-    />
+  <div :class="type">
+    <img :src="require(`../../assets/Icons/${imgSrc}`)" />
   </div>
 </template>
 
@@ -12,6 +8,14 @@
 import { defineProps, ref } from "vue";
 const props = defineProps({
   imgSrc: String,
+  type: String,
 });
 const imgSrc = ref(props.imgSrc);
+const type = ref(props.type);
 </script>
+
+<style scoped>
+.svg-icon {
+  color: #fff;
+}
+</style>

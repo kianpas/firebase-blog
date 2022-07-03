@@ -7,6 +7,6 @@ const app = createApp(App);
 
 app.use(router);
 
-app.component("base-icon", BaseIcon);
+app.component("BaseIcon", BaseIcon);
 
 app.mount("#app");

@@ -1,23 +1,16 @@
 <template>
   <div class="app-wrapper">
     <div class="app">
-      <the-header></the-header>
+      <TheHeader />
       <router-view></router-view>
-      <the-footer></the-footer>
+      <TheFooter />
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import TheHeader from "./components/layout/TheHeader.vue";
 import TheFooter from "./components/layout/TheFooter.vue";
-
-export default {
-  components: {
-    TheHeader,
-    TheFooter,
-  },
-};
 </script>
 
 <style>

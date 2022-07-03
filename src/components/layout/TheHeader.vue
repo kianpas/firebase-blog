@@ -13,11 +13,12 @@
         </ul>
       </div>
     </nav>
-    <base-icon
+    <BaseIcon
+      class="menu-icon"
       v-show="mobile"
       @click="toggleMobileNav"
       imgSrc="bars-regular.svg"
-    ></base-icon>
+    />
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
         <router-link class="link" to="#">Home</router-link>
@@ -31,7 +32,6 @@
 
 <script setup>
 import { ref } from "vue";
-import BaseIcon from "../ui/BaseIcon.vue";
 
 const mobile = ref(false);
 const mobileNav = ref(false);
@@ -55,7 +55,7 @@ function toggleMobileNav() {
 }
 </script>
 
-<style scope>
+<style scoped>
 header {
   background-color: #fff;
   padding: 0 25px;
