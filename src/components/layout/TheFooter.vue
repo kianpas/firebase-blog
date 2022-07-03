@@ -7,10 +7,7 @@
           <ul>
             <li>
               <a href="#">
-                <BaseIcon
-                  class="svg-icon"
-                  imgSrc="youtube-brands.svg"
-                ></BaseIcon>
+                <BaseIcon class="svg-icon" imgSrc="youtube-brands.svg" />
               </a>
             </li>
             <li>
