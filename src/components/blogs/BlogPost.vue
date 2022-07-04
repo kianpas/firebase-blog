@@ -7,10 +7,10 @@
         <p v-if="post.welcomeScreen">{{ post.blogPost }}</p>
         <p class="content-preview" v-else>{{ post.blogHtml }}</p>
         <router-link class="link link-light" v-if="post.welcomeScreen" to="#">
-          Login/Register<BaseIcon class="arrow" imgSrc="arrow-right-light.svg"
+          Login/Register<BaseIcon type="arrow" imgSrc="arrow-right-light.svg"
         /></router-link>
         <router-link class="link link-light" v-else to="#"
-          >View The Post<BaseIcon class="arrow" imgSrc="arrow-right-light.svg"
+          >View The Post<BaseIcon type="arrow" imgSrc="arrow-right-light.svg"
         /></router-link>
       </div>
     </div>
@@ -41,6 +41,7 @@ const post = reactive(props.post);
 <style scoped>
 .blog-wrapper {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -88,10 +89,14 @@ const post = reactive(props.post);
   padding-bottom: 4px;
   border-bottom: 1px solid transparent;
   transition: 0.5s ease-in all;
+  color: rgb(24, 26, 27);
 }
 
 .blog-content .link:hover {
   border-bottom-color: #303030;
+}
+.blog-content .link-light {
+  color: rgb(220, 218, 215);
 }
 
 .blog-content .link-light:hover {
@@ -119,17 +124,10 @@ const post = reactive(props.post);
   order: 1;
 }
 
-.arrow {
-  margin-left: 8px;
-  width: 12px;
-}
-.arrow path {
-  fill: #fff;
-}
-
 .arrow-light path {
   fill: #fff;
 }
+
 .no-user:first-child .blog-content {
   background-color: #303030;
   color: #fff;

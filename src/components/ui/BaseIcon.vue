@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="type">
     <img :src="require(`../../assets/Icons/${imgSrc}`)" />
   </div>
 </template>
@@ -11,8 +11,8 @@ const props = defineProps({
   type: String,
 });
 const imgSrc = ref(props.imgSrc);
-// const type = ref(props.type);
-console.log(imgSrc);
+const type = ref(props.type);
+console.log(type);
 </script>
 
 <style scoped>
@@ -21,6 +21,7 @@ console.log(imgSrc);
 }
 
 .arrow {
+  padding: 0 !important;
   margin-left: 8px;
   width: 12px;
 }
