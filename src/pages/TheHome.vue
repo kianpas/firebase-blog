@@ -11,20 +11,33 @@
         <h3>View More Recent Blogs</h3>
         <div class="blog-cards">
           <BlogCard
-            v-for="(post, index) in sampleBlogCards"
+            v-for="(post, index) in sampleBlogCard"
             :post="post"
             :key="index"
           />
         </div>
       </div>
     </div>
+    <div class="updates">
+      <div class="container">
+        <h2>never miss a post. Register for your free account today!</h2>
+        <router-link class="router-button" to="#"
+          >Register for FirebaseBlog
+          <BaseIcon type="arrow" imgSrc="arrow-right-light.svg"
+        /></router-link>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
+import { useStore } from "vuex";
+
 import BlogPost from "../components/blogs/BlogPost";
 import BlogCard from "../components/blogs/BlogCard";
+
+const store = useStore();
 
 const welcomeScreen = reactive({
   title: "Welcome!",
@@ -47,28 +60,9 @@ const sampleBlogPost = reactive([
   },
 ]);
 
-const sampleBlogCards = reactive([
-  {
-    blogTitle: "Blog Card #1",
-    blogCoverPhoto: "stock-1",
-    blogDate: "May 1, 2021",
-  },
-  {
-    blogTitle: "Blog Card #2",
-    blogCoverPhoto: "stock-2",
-    blogDate: "May 1, 2021",
-  },
-  {
-    blogTitle: "Blog Card #3",
-    blogCoverPhoto: "stock-3",
-    blogDate: "May 1, 2021",
-  },
-  {
-    blogTitle: "Blog Card #4",
-    blogCoverPhoto: "stock-4",
-    blogDate: "May 1, 2021",
-  },
-]);
+const sampleBlogCard = computed(function () {
+  return store.state.sampleBlogCards;
+});
 </script>
 
 <style scoped>
@@ -76,5 +70,41 @@ const sampleBlogCards = reactive([
   font-weight: 300;
   font-size: 28px;
   margin-bottom: 32px;
+}
+
+.updates .container {
+  padding: 100px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.updates .router-button {
+  display: flex;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 32px;
+  max-width: 425px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (min-width: 800px) {
+  .updates .container {
+    padding: 125px 25px;
+    flex-direction: row;
+  }
+  .updates .router-button {
+    margin-left: auto;
+  }
+  h2 {
+    text-align: initial;
+    font-size: 40px;
+  }
 }
 </style>

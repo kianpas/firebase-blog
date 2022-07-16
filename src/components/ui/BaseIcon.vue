@@ -12,7 +12,6 @@ const props = defineProps({
 });
 const imgSrc = ref(props.imgSrc);
 const type = ref(props.type);
-console.log(type);
 </script>
 
 <style scoped>
@@ -31,5 +30,14 @@ console.log(type);
 
 .arrow-light path {
   fill: #fff;
+}
+
+.menu-icon img {
+  cursor: pointer;
+  position: absolute;
+  top: 32px;
+  right: 25px;
+  height: 25px;
+  width: auto;
 }
 </style>

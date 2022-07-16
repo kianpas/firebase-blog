@@ -118,14 +118,7 @@ nav .nav-links ul .link:last-child {
   margin-right: 0;
 }
 
-.menu-icon img {
-  cursor: pointer;
-  position: absolute;
-  top: 32px;
-  right: 25px;
-  height: 25px;
-  width: auto;
-}
+
 
 .mobile-nav {
   padding: 20px;
